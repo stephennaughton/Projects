@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+
+	<Spinner android:id="@+id/category" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:entries="@array/priorities"></Spinner>
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_height="wrap_content" android:layout_width="fill_parent">
+		<EditText android:layout_height="wrap_content" android:id="@+id/todo_edit_summary"
+			android:layout_weight="1" android:layout_width="fill_parent"
+			android:hint="Summary"></EditText>
+
+	</LinearLayout>
+    
+	 <ScrollView android:id="@+id/ScrollView01"
+	 android:layout_width="wrap_content" android:layout_below="@+id/ImageView01"
+	 android:layout_height="200px">
+	 
+	 <TextView android:text="The setup is simple. Most of the code needed to create a progress dialog is actually involved in the process that updates it. You might find that it's necessary to create a second thread in your application for this work and then report the progress back to the Activity's UI thread with a Handler object. If you're not familiar with using additional threads with a Handler, see the example Activity below that uses a second thread to increment a progress dialog managed by the Activity." android:id="@+id/TextView01"
+	 android:layout_width="wrap_content" android:layout_height="wrap_content" />
+	 
+	 </ScrollView>
+	 
+	<Button android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/todo_edit_button"
+			android:text="@string/todo_edit_confirm"></Button>
+
+
+</LinearLayout>
