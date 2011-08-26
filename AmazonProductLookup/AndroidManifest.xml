@@ -14,6 +14,9 @@
             </intent-filter>
         </activity>
         <activity android:name="AmazonRetrieveDetail"></activity>
+        <activity android:name="BookListingActivity"></activity>
+        <activity android:name="BookScanActivity"></activity>
+        <activity android:name="SettingsActivity"></activity>
 
     </application>
 </manifest>
