@@ -1,4 +1,4 @@
-package com.application.android.data;
+package com.amazon.advertising.api.sample;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,28 +7,27 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.application.android.data.vo.BookInfo;
-
 /**
- * Utility class to retrieve and package the Book Data into a usable format
+ * Utility class to retrieve and package the CarPark Data into a usable format
  * @author snaughton
  *
  */
-
-// TODO much testing gone into this.
 public class BookInfoRetriever {
 	
 	private static DocumentBuilderFactory domFactory;

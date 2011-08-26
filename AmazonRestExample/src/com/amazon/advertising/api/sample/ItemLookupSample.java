@@ -100,7 +100,7 @@ public class ItemLookupSample {
         params.put("SubscriptionId", "Your_AWS_ID");
         params.put("AssociateTag", "assoc-id-20");
         params.put("IdType", "EAN");
-        params.put("ResponseGroup", "ItemAttributes,EditorialReview");
+        params.put("ResponseGroup", "ItemAttributes");
 
         requestUrl = helper.sign(params);
         System.out.println("Signed Request is \"" + requestUrl + "\"");
