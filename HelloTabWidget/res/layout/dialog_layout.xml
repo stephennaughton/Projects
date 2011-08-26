@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:weightSum="1"
+>
+
+  <TableLayout
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+  >
+    <TableRow
+      android:id="@+id/tableRow1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+    >
+      <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/imageView1"
+        android:paddingLeft="10px"
+        android:src="@drawable/icon"
+      ></ImageView>
+      <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Agile Planning and Estimating"
+        android:id="@+id/textView1"
+        android:paddingLeft="20px"
+        android:paddingTop="20px"
+      ></TextView>
+
+    </TableRow>
+  </TableLayout>
+
+  <FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/frameLayout1"
+  >
+    <ScrollView
+      android:id="@+id/ScrollView01"
+      android:layout_width="wrap_content"
+      android:layout_below="@+id/ImageView01"
+      android:layout_height="200px"
+    >
+    </ScrollView>
+    <TextView
+      android:layout_width="wrap_content"
+      android:text="Verterem erroribus cu vis. Munere blandit eum in. Eu cum maiorum facilisis. Animal tractatos te mel. Quod iusto laboramus id his. In audire meliore eam, mazim definitionem eu ius. Autem ipsum appellantur sed cu, dictas principes te mea, te mea denique voluptatibus. Eu ullum sensibus vis, cu eos magna blandit. Has ea consul deseruisse. Per et animal omittam. Eum offendit salutandi adipiscing id, ius possim oportere ut. Wisi inani prodesset has an, nec assum admodum cu, ius ex tantas nostrum. Ad reque aliquid usu. At his blandit periculis interpretaris. No repudiare consequuntur ius, eu numquam apeirian mel. Ea saperet vocibus convenire est, latine impedit tibique eos ea. Ceteros mentitum neglegentur pri eu. Cu zril dissentiet his. Eam oratio volutpat definiebas te, magna alienum appellantur quo ne. Mea dico mundi ne, quando meliore conceptam ex ius."
+      android:paddingLeft="20px"
+      android:id="@+id/textView1"
+      android:paddingTop="20px"
+      android:layout_height="314dp"
+    >
+    </TextView>
+
+  </FrameLayout>
+
+  <TableLayout
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20px"
+    android:paddingLeft="20px"
+  >
+    <TableRow>
+      <TextView
+        android:text="Trade In Value"
+        android:padding="3dip" />
+      <TextView
+        android:text="$29.99"
+        android:padding="3dip" />
+    </TableRow>
+
+  </TableLayout>
+
+</LinearLayout>
