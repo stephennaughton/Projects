@@ -1,4 +1,4 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
 import java.util.List;
 
@@ -24,9 +24,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 public class BookListingActivity extends ListActivity {
 	
 	private BooksDBAdapter dbHelper;
-	private static final int ACTIVITY_CREATE = 0;
-	private static final int ACTIVITY_EDIT = 1;
-	private static final int DELETE_ID = Menu.FIRST + 1;
+	private static final int DETAIL_ID = Menu.FIRST + 1;
+	private static final int DELETE_ID = Menu.FIRST + 2;
 	
 	public void onCreate(Bundle savedInstanceState) {        
 		super.onCreate(savedInstanceState);
@@ -46,51 +45,53 @@ public class BookListingActivity extends ListActivity {
 		return true;
 	}
 
-	// Reaction to the menu selection
-	@Override
-	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.insert:
-			addNewBook();
-			return true;
-		}
-		return super.onMenuItemSelected(featureId, item);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.insert:
-			addNewBook();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+//	// Reaction to the menu selection
+//	@Override
+//	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+//		switch (item.getItemId()) {
+//		case R.id.insert:
+//			addNewBook();
+//			return true;
+//		}
+//		return super.onMenuItemSelected(featureId, item);
+//	}
+//
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch (item.getItemId()) {
+//		case R.id.insert:
+//			addNewBook();
+//			return true;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+	  case DETAIL_ID:
+	  	showDetailDialog();
+		  fillData();
+		  return true;
 		case DELETE_ID:
-			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
-					.getMenuInfo();
-			dbHelper.deleteBook(info.id);
-			fillData();
-			return true;
+			  AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
+					  .getMenuInfo();
+			  dbHelper.deleteBook(info.id);
+			  fillData();
+			  return true;
 		}
 		return super.onContextItemSelected(item);
-	}
-
-	private void addNewBook() {
-		//Intent i = new Intent(this, SongDetails.class);
-		//startActivityForResult(i, ACTIVITY_CREATE);
 	}
 
 	// ListView and view (row) on which was clicked, position and
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		super.onListItemClick(l, v, position, id);
-		
-		final Dialog dialog = new Dialog(this);
+		super.onListItemClick(l, v, position, id);		
+		showDetailDialog();
+	}
+
+	private void showDetailDialog() {
+	  final Dialog dialog = new Dialog(this);
 
 		dialog.setContentView(R.layout.dialog_layout);
 		dialog.setTitle("Custom Dialog");
@@ -103,42 +104,25 @@ public class BookListingActivity extends ListActivity {
             }
         });
 		dialog.show();
-		
-		//Intent i = new Intent(this, SongDetails.class);
-		//i.putExtra("SONG_ROWID", id);
-		// Activity returns an result if called with startActivityForResult
-		
-		//startActivityForResult(i, ACTIVITY_EDIT);
-	}
-
-	// Called with the result of the other activity
-	// requestCode was the origin request code send to the activity
-	// resultCode is the return code, 0 is everything is ok
-	// intend can be use to get some data from the caller
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode,
-			Intent intent) {
-		super.onActivityResult(requestCode, resultCode, intent);
-		fillData();
-	}
+  }
 
 	private void fillData() {
 		
 		List<BookInfo> bookList = dbHelper.fetchAllBooks();
 
-		Log.d("APPPPPPPPY", bookList.toString());		
+		Log.d("APPPPPPPPYTEST", bookList.toString());		
 		// Now create an array adapter and set it to display using our row
 		BookListAdapter songListAdapter = new BookListAdapter(this, bookList);
 		
-		setListAdapter(songListAdapter);
-		
+		setListAdapter(songListAdapter);		
 	}
 
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		//menu.add(0, DELETE_ID, 0, R.string.menu_delete);
+		menu.add(0, DETAIL_ID, 0, R.string.menu_detail);
+		menu.add(0, DELETE_ID, 1, R.string.menu_delete);
 	}
 	
 	@Override
@@ -148,6 +132,11 @@ public class BookListingActivity extends ListActivity {
 			dbHelper.close();
 		}
 	}
-
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		fillData();
+	}
 	
 }

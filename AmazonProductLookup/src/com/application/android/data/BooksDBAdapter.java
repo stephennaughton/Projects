@@ -16,7 +16,7 @@ public class BooksDBAdapter {
 	
 	private Context context;
 	private SQLiteDatabase database;
-	private BooksDatabaseHelper dbHelper;
+	private BooksDatabaseWrapper dbHelper;
 
 	private static final String DATABASE_TABLE = "books";
 	
@@ -25,7 +25,7 @@ public class BooksDBAdapter {
 	}
 
 	public BooksDBAdapter open() throws SQLException {
-		dbHelper = new BooksDatabaseHelper(context);
+		dbHelper = new BooksDatabaseWrapper(context);
 		database = dbHelper.getWritableDatabase();
 		return this;
 	}
@@ -40,6 +40,7 @@ public class BooksDBAdapter {
 	 * @return
 	 */
 	public long createBook(BookInfo bookInformation) {
+		Log.d("BOOKINFO", bookInformation.toString());
 		ContentValues initialValues = createContentValues(bookInformation);
 		return database.insert(DATABASE_TABLE, null, initialValues);
 	}
@@ -106,7 +107,7 @@ public class BooksDBAdapter {
 	 */
 	public BookInfo fetchBook(long rowId) throws SQLException {
 		
-		Log.d("LOOKUPSONG", ":::::" + rowId);
+		Log.d("LOOKUPBOOK", ":::::" + rowId);
 		
 		BookInfo thisBook = null;
 				

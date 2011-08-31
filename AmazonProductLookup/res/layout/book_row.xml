@@ -18,8 +18,7 @@
 		android:id="@+id/label"
 		android:text="@+id/TextView01"
 		android:layout_height="wrap_content"
-		android:textSize="25px"
 		android:layout_marginTop="6px"
 		android:layout_width="fill_parent"
-	></TextView>
+	    style="@style/CodeFont"></TextView>
 </LinearLayout>

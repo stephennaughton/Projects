@@ -1,4 +1,4 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +59,9 @@ public class BookListAdapter extends BaseAdapter {
 
 		v = vi.inflate(R.layout.book_row, null);				
 
+		Log.d("DEBUG","" + arg0);
 		BookInfo availableData = bookList.get(arg0);
+		Log.d("DEBUG","" + availableData.toString());
 
 		if (availableData == null) {
 			Log.d("TEAST", "NULL availableData");

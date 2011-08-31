@@ -1,12 +1,14 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 
-public class AmazonProductDetailLookup extends TabActivity {
+public class ApplicationCoreActivity extends TabActivity implements OnTabChangeListener {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,14 @@ public class AmazonProductDetailLookup extends TabActivity {
 		tabHost.addTab(spec);
 
 		tabHost.setCurrentTabByTag("listing");
+		
+		tabHost.setOnTabChangedListener(this);
 	}
+
+	@Override
+  public void onTabChanged(String arg0) {
+	  // TODO Auto-generated method stub
+	  Log.d("TABHOST", "Changed to " + arg0);
+  }
 
 }

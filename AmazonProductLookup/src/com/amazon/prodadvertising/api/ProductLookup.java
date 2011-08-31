@@ -1,7 +1,6 @@
 package com.amazon.prodadvertising.api;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -9,11 +8,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-
-import android.util.Log;
-
-import com.application.android.data.BookInfoRetriever;
-import com.application.android.data.vo.BookInfo;
 
 public class ProductLookup {
 	/*

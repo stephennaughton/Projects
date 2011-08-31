@@ -1,4 +1,4 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
 import android.app.Activity;
 import android.os.Bundle;

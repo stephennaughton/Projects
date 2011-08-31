@@ -3,4 +3,6 @@
     <string name="hello">Hello World, AmazonProductLookupActivity!</string>
     <string name="app_name">AmazonProductLookup</string>
     <string name="no_books">No Books found</string>
+    <string name="menu_detail">More Information</string>
+    <string name="menu_delete">Delete</string>
 </resources>

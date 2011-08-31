@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.zxing.integration.android;
+package com.google.zxing.integration;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

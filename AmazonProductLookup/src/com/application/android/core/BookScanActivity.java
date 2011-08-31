@@ -1,7 +1,11 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import com.amazon.prodadvertising.api.BookInfoRetriever;
+import com.amazon.prodadvertising.api.ProductLookup;
+import com.application.android.data.BooksDBAdapter;
+import com.application.android.data.vo.BookInfo;
+import com.google.zxing.integration.IntentIntegrator;
+import com.google.zxing.integration.IntentResult;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +19,20 @@ public class BookScanActivity extends Activity {
 		super.onCreate(savedInstanceState);        
 		TextView textview = new TextView(this);        
 		textview.setText("This is the BookScan Activity! There will be a button.");        
-		setContentView(textview);    
+		setContentView(textview);  
+		
+		String isbn = "9780131479418";
+		
+		Log.d("BOOKINFO", "Retrieving book information");
+		BookInfoRetriever bookLookup = new BookInfoRetriever();
+		BookInfo bookInfo = bookLookup.lookupAmazonProductInfo(isbn);
+		
+		// Add to the database
+		BooksDBAdapter adapter = new BooksDBAdapter(this);
+		adapter.open();
+		adapter.createBook(bookInfo);
+		adapter.close();
+		
 	}
 
 

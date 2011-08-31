@@ -1,4 +1,4 @@
-        package com.google.zxing.integration.android;
+        package com.google.zxing.integration;
 
         /**
          * <p>Encapsulates the result of a barcode scan invoked through {@link IntentIntegrator}.</p>

@@ -1,4 +1,4 @@
-package com.application.android.amazon;
+package com.application.android.core;
 
 import java.util.Map;
 
