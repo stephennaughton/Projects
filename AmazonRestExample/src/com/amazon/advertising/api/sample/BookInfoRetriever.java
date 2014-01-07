@@ -44,7 +44,7 @@ public class BookInfoRetriever {
 	public static void main(String[] args) {
 		
 		BookInfoRetriever info = new BookInfoRetriever();
-		BookInfo book = info.getBookData("http://ecs.amazonaws.com/onca/xml?AWSAccessKeyId=AKIAJ4TRBPEMPHH4R65Q&AssociateTag=assoc-id-20&IdType=EAN&ItemId=9780131479418&Operation=ItemLookup&ResponseGroup=ItemAttributes%2CEditorialReview&SearchIndex=Books&Service=AWSECommerceService&Timestamp=2011-08-26T10%3A50%3A33.000Z&Version=2011-08-01&Signature=xLUPW30S20y3%2FcdykaiQZYAlkvu3TDsCjbF3GBAYJOY%3D");
+		BookInfo book = info.getBookData("http://ecs.amazonaws.com/onca/xml?AWSAccessKeyId=&AssociateTag=assoc-id-20&IdType=EAN&ItemId=9780131479418&Operation=ItemLookup&ResponseGroup=ItemAttributes%2CEditorialReview&SearchIndex=Books&Service=AWSECommerceService&Timestamp=2011-08-26T10%3A50%3A33.000Z&Version=2011-08-01&Signature=");
 		
 		System.out.println(book.toString());
 		
